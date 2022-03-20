@@ -49,15 +49,23 @@ function playRound(playerSelection, computerSelection) {
     } else return "It's a tie"; 
 }
 
-const playerSelection = computerPlay();
-const computerSelection = computerPlay();
 
 function game() {
-    playRound(playerSelection, computerSelection);
-    console.log(playerScore)
-};
+    for (let i = 1; i <= 5; i++) {
+        let playerSelection = prompt(`Round ${i}: What is your choice?`);
+        playerSelection = playerSelection.toLowerCase();
+        console.log(playRound(playerSelection, computerPlay()))
+    }
+    if (playerScore > computerScore) {
+        console.log(`You win ${playerScore} to ${computerScore}`);
+    } else if (playerScore < computerScore) {
+        console.log(`You lose ${playerScore} to ${computerScore}`);
+    } else {
+        console.log(`It's a tie: ${playerScore} to ${computerScore}`);
+    }
+}
 
-console.log(playerScore)
+game();
 </script>
 </body>
 </html>
