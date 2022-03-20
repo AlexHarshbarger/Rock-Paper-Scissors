@@ -49,13 +49,16 @@ function playRound(playerSelection, computerSelection) {
     } else return "It's a tie"; 
 }
 
-
-function game() {
+function gameLoop() {
     for (let i = 1; i <= 5; i++) {
         let playerSelection = prompt(`Round ${i}: What is your choice?`);
         playerSelection = playerSelection.toLowerCase();
         console.log(playRound(playerSelection, computerPlay()))
+        console.log(`${playerScore} to ${computerScore}`);
     }
+}
+
+function updateScore() {
     if (playerScore > computerScore) {
         console.log(`You win ${playerScore} to ${computerScore}`);
     } else if (playerScore < computerScore) {
@@ -63,6 +66,11 @@ function game() {
     } else {
         console.log(`It's a tie: ${playerScore} to ${computerScore}`);
     }
+}
+
+function game() {
+    gameLoop();
+    updateScore();
 }
 
 game();
