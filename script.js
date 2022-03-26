@@ -14,7 +14,9 @@ again.addEventListener('click', () => {
     document.querySelector('.winner').textContent = "";
     document.querySelector('.playerscore').textContent = "Player: ";
     document.querySelector('.computerscore').textContent = "Computer: ";
-    
+    paper.disabled = false;
+    scissors.disabled = false;
+    rock.disabled = false;
 })
     
 paper.addEventListener('click', () => {
@@ -25,6 +27,7 @@ paper.addEventListener('click', () => {
     document.querySelector('.winner').textContent = playRound("paper", computerSelection);
     document.querySelector('.playerscore').textContent = "Player: " + playerScore;
     document.querySelector('.computerscore').textContent = "Computer: " + computerScore;
+    endGame();
 })
 rock.addEventListener('click', () => {
     let computerSelection = computerPlay();
@@ -34,6 +37,7 @@ rock.addEventListener('click', () => {
     document.querySelector('.winner').textContent = playRound("rock", computerSelection);
     document.querySelector('.playerscore').textContent = "Player: " + playerScore;
     document.querySelector('.computerscore').textContent = "Computer: " + computerScore;
+    endGame();
 })
 scissors.addEventListener('click', () => {
     let computerSelection = computerPlay();
@@ -43,6 +47,7 @@ scissors.addEventListener('click', () => {
     document.querySelector('.winner').textContent = playRound("scissors", computerSelection);
     document.querySelector('.playerscore').textContent = "Player: " + playerScore;
     document.querySelector('.computerscore').textContent = "Computer: " + computerScore;
+    endGame();
 })
 
 function computerPlay() {
@@ -75,6 +80,20 @@ function playRound(playerSelection, computerSelection) {
         computerScore++;
         return "You lose! Rock beats scissors"
     } else return "It's a tie"; 
+}
+
+function endGame() {
+    if (playerScore == 5) {
+        alert(`You win ${playerScore} to ${computerScore}!`);
+        paper.disabled = true;
+        scissors.disabled = true;
+        rock.disabled = true;
+    } else if (computerScore == 5) {
+        alert(`You lose ${playerScore} to ${computerScore}!`)
+        paper.disabled = true;
+        scissors.disabled = true;
+        rock.disabled = true;
+    }
 }
 
 // function gameLoop() {
