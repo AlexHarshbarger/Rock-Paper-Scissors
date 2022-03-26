@@ -1,3 +1,30 @@
+const paper = document.querySelector('#paper');
+const rock = document.querySelector('#rock');
+const scissors = document.querySelector('#scissors');
+
+    
+paper.addEventListener('click', () => {
+    let computerSelection = computerPlay();
+    let playerSelection = "paper";
+    document.querySelector('.playeroutcome').textContent = "Player: Paper"; 
+    document.querySelector('.computeroutcome').textContent = "Computer: " + computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
+    document.querySelector('.winner').textContent = playRound("paper", computerSelection);
+})
+rock.addEventListener('click', () => {
+    let computerSelection = computerPlay();
+    let playerSelection = "rock";
+    document.querySelector('.playeroutcome').textContent = "Player: Rock";
+    document.querySelector('.computeroutcome').textContent = "Computer: " + computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+    document.querySelector('.winner').textContent = playRound("rock", computerSelection);
+})
+scissors.addEventListener('click', () => {
+    let computerSelection = computerPlay();
+    let playerSelection = "scissors";
+    document.querySelector('.playeroutcome').textContent = "Player: Scissors";
+    document.querySelector('.computeroutcome').textContent = "Computer: " + computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+    document.querySelector('.winner').textContent = playRound("scissors", computerSelection);
+})
+
 function computerPlay() {
     const myarray = ["rock", "paper", "scissors"];
     newarray = myarray[Math.floor(Math.random() * myarray.length)];
@@ -7,37 +34,37 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == "rock" && computerSelection == "rock") {
         return "It's a tie"
-    } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        playerScore++;
+    } else if (playerSelection == "rock" && computerSelection == "scissors") {
+        // playerScore++;
         return "You win! Rock beats scissors"
-    } else if (playerSelection === "rock" && computerSelection === "paper") {
-        computerScore++;
+    } else if (playerSelection == "rock" && computerSelection == "paper") {
+        // computerScore++;
         return "You lose! Paper beats rock"
-    } else if (playerSelection === "paper" && computerSelection === "paper") {
+    } else if (playerSelection == "paper" && computerSelection == "paper") {
         return "It's a tie"
-    } else if (playerSelection === "paper" && computerSelection === "rock") {
-        playerScore++;
+    } else if (playerSelection == "paper" && computerSelection == "rock") {
+        // playerScore++;
         return "You win! Paper beats rock"
-    } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        computerScore++;
+    } else if (playerSelection == "paper" && computerSelection == "scissors") {
+        //computerScore++;
         return "You lose! Scissors beats paper"
-    } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        playerScore++;
+    } else if (playerSelection == "scissors" && computerSelection == "paper") {
+        //playerScore++;
         return "You win! Scissors beats paper"
-    } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        computerScore++;
+    } else if (playerSelection == "scissors" && computerSelection == "rock") {
+        //computerScore++;
         return "You lose! Rock beats scissors"
     } else return "It's a tie"; 
 }
 
-function gameLoop() {
-    for (let i = 1; i <= 5; i++) {
-        let playerSelection = prompt(`Round ${i}: What is your choice?`);
-        playerSelection = playerSelection.toLowerCase();
-        console.log(playRound(playerSelection, computerPlay()))
-        console.log(`${playerScore} to ${computerScore}`);
-    }
-}
+// function gameLoop() {
+//     for (let i = 1; i <= 5; i++) {
+//         let playerSelection = prompt(`Round ${i}: What is your choice?`);
+//         playerSelection = playerSelection.toLowerCase();
+//         console.log(playRound(playerSelection, computerPlay()))
+//         console.log(`${playerScore} to ${computerScore}`);
+//     }
+// }
 
 function updateScore() {
     if (playerScore > computerScore) {
@@ -49,7 +76,7 @@ function updateScore() {
     }
 }
 
-function game() {
-    gameLoop();
-    updateScore();
-}
+// function game() {
+//     gameLoop();
+//     updateScore();
+// }
