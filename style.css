@@ -25,26 +25,44 @@ body {
 }
 
 button {
-    padding: 15px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid red;
+    border-radius: 10px;
 }
+
+button:hover{background-color: rgb(235, 235, 235);}
 
 .winner {
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 15px;
+    height: 37px;
+    margin-left: 150px;
+    margin-right: 150px;
     font-weight: bold;
     font-size: 2rem;
+    background-color: rgb(235, 235, 235);
 }
 
 .outcome {
     display: flex;
-    justify-content: space-evenly;
     margin: 15px;
+    gap: 60px;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .scores {
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap: 10px;
+}
+
+.again {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
 }
